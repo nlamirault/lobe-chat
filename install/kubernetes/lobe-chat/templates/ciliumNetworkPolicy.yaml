@@ -2,6 +2,9 @@
 apiVersion: "cilium.io/v2"
 kind: CiliumNetworkPolicy
 metadata:
+  labels:
+    {{- include "lobe-chat.labels" . | nindent 4 }}
+    app.kubernetes.io/component: networking
   name: lobe-chat
 spec:
   {{ toYaml . | nindent 2 }}
